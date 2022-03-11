@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{D17DEB45-B33D-4B6E-A9E1-37B4AC731BD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OnlineWallet", "OnlineWallet", "{9B3BB5DF-305E-4952-A375-4E61ABE4FE49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet.WebApi", "Src\OnlineWallet\OnlineWallet.WebApi\OnlineWallet.WebApi\OnlineWallet.WebApi.csproj", "{1B193109-A00A-44F2-BC16-7DB0FAF43832}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet", "Src\OnlineWallet\OnlineWallet\OnlineWallet\OnlineWallet.csproj", "{53251229-BBA9-4F5A-BAE0-4E77A8E27C37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet.Dal", "Src\OnlineWallet\OnlineWallet.Dal\OnlineWallet.Dal\OnlineWallet.Dal.csproj", "{C464C05D-8926-4326-ACCB-C5F03BC9AA05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{7165ECED-D007-43F9-8D6B-233A8375E9CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet.Impl", "Src\OnlineWallet\OnlineWallet.Impl\OnlineWallet.Impl\OnlineWallet.Impl.csproj", "{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B193109-A00A-44F2-BC16-7DB0FAF43832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B193109-A00A-44F2-BC16-7DB0FAF43832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B193109-A00A-44F2-BC16-7DB0FAF43832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B193109-A00A-44F2-BC16-7DB0FAF43832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53251229-BBA9-4F5A-BAE0-4E77A8E27C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53251229-BBA9-4F5A-BAE0-4E77A8E27C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53251229-BBA9-4F5A-BAE0-4E77A8E27C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53251229-BBA9-4F5A-BAE0-4E77A8E27C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C464C05D-8926-4326-ACCB-C5F03BC9AA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C464C05D-8926-4326-ACCB-C5F03BC9AA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C464C05D-8926-4326-ACCB-C5F03BC9AA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C464C05D-8926-4326-ACCB-C5F03BC9AA05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B3BB5DF-305E-4952-A375-4E61ABE4FE49} = {D17DEB45-B33D-4B6E-A9E1-37B4AC731BD4}
+		{1B193109-A00A-44F2-BC16-7DB0FAF43832} = {9B3BB5DF-305E-4952-A375-4E61ABE4FE49}
+		{53251229-BBA9-4F5A-BAE0-4E77A8E27C37} = {9B3BB5DF-305E-4952-A375-4E61ABE4FE49}
+		{C464C05D-8926-4326-ACCB-C5F03BC9AA05} = {9B3BB5DF-305E-4952-A375-4E61ABE4FE49}
+		{6F1166A3-3C7A-42FA-B51D-7922C73BB34E} = {9B3BB5DF-305E-4952-A375-4E61ABE4FE49}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AA47412-7563-4345-A975-FB0773D74F22}
+	EndGlobalSection
+EndGlobal
