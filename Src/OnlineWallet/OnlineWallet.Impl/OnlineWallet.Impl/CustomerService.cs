@@ -12,7 +12,6 @@ namespace OnlineWallet.Impl
 {
     internal class CustomerService : ICustomerService
     {
-
         private readonly ICustomerRepository _customerRepository;
 
         public CustomerService(ICustomerRepository customerRepository)
@@ -22,8 +21,7 @@ namespace OnlineWallet.Impl
 
         public async Task CreateCustomer(CreateCustomerModel model)
         {
-
-            var hashPassword = DigestAuthentication.ComputeA1Md5Hash(model.UserName, "some-realm", model.Password);
+            var hashPassword = DigestAuthentication.ComputeA1Md5Hash(model.UserName, Constants.Realm, model.Password);
             await _customerRepository.AddAsync(new Customer()
             {
                 UserName = model.UserName,

@@ -16,8 +16,6 @@ namespace OnlineWallet.Impl
             _walletRepository = walletRepository;
             _transactionRepository = transactionRepository;
         }
-
-
         public async Task<bool> CheckIfWalletExists(Guid? userId)
         {
             if (!userId.HasValue)
@@ -28,7 +26,6 @@ namespace OnlineWallet.Impl
             return wallets != null;
         }
 
-
         public async Task<OperationResultModel> GetOperationForMonth(Guid? userId)
         {
             if (!userId.HasValue)
@@ -38,7 +35,6 @@ namespace OnlineWallet.Impl
             var result = await _transactionRepository.GetAllTransactionForMonth(userId.Value, DateTime.UtcNow);
             return result;
         }
-
 
         public async Task<int> GetWalletBalance(Guid? userId)
         {

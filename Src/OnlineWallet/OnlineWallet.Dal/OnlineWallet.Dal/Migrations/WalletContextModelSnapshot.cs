@@ -25,7 +25,7 @@ namespace OnlineWallet.Dal.Migrations
                     b.Property<int>("Balance")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("CustomerId")
+                    b.Property<Guid?>("CustomerId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -87,9 +87,7 @@ namespace OnlineWallet.Dal.Migrations
                 {
                     b.HasOne("OnlineWallet.Dal.Entities.DbCustomer", "Customer")
                         .WithOne("Wallet")
-                        .HasForeignKey("OnlineWallet.Dal.DbWallet", "CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OnlineWallet.Dal.DbWallet", "CustomerId");
 
                     b.Navigation("Customer");
                 });

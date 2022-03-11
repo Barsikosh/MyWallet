@@ -15,7 +15,7 @@ namespace OnlineWallet.Dal
 
         public int Balance { get; set; }
 
-        public Guid CustomerId { get; set; }
+        public Guid? CustomerId { get; set; }
 
         public DbCustomer Customer { get; set; }
     }

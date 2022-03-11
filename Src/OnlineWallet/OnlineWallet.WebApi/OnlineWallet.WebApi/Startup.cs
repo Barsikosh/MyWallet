@@ -16,6 +16,7 @@ using FlakeyBit.DigestAuthentication.AspNetCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using OnlineWallet.Impl;
 using OnlineWallet.Impl.loC;
 
 
@@ -35,7 +36,7 @@ namespace OnlineWallet.WebApi
         {
 
             services.AddAuthentication("Digest")
-                    .AddDigestAuthentication(DigestAuthenticationConfiguration.Create("VerySecret", "some-realm", 60, true, 20));
+                    .AddDigestAuthentication(DigestAuthenticationConfiguration.Create("VerySecret", Constants.Realm, 60, true, 20));
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
