@@ -23,6 +23,9 @@ namespace OnlineWallet.Dal.Entities
         [Required]
         public string HashPassword { get; set; }
 
+        public bool PassAllAuthorization { get; set; }
+
+
         public DbWallet Wallet;
     }
 }

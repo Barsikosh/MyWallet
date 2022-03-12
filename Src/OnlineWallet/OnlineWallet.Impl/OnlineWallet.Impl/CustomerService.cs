@@ -25,11 +25,13 @@ namespace OnlineWallet.Impl
             await _customerRepository.AddAsync(new Customer()
             {
                 UserName = model.UserName,
-                HashPassword = hashPassword
+                HashPassword = hashPassword,
+                PassAllAuthorization = model.PassAllAuthorization,
+                
             });
         }
 
-        public async Task<Customer> GetUserByPassword(string userName)
+        public async Task<Customer> GetUserByUserName(string userName)
         {
             return await _customerRepository.GetCustomerByName(userName);
         }

@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet", "Src\OnlineW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet.Dal", "Src\OnlineWallet\OnlineWallet.Dal\OnlineWallet.Dal\OnlineWallet.Dal.csproj", "{C464C05D-8926-4326-ACCB-C5F03BC9AA05}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{7165ECED-D007-43F9-8D6B-233A8375E9CA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineWallet.Impl", "Src\OnlineWallet\OnlineWallet.Impl\OnlineWallet.Impl\OnlineWallet.Impl.csproj", "{6F1166A3-3C7A-42FA-B51D-7922C73BB34E}"
 EndProject
 Global

@@ -12,6 +12,8 @@ namespace OnlineWallet.Models
 
         public string HashPassword { get; set; }
 
+        public bool PassAllAuthorization { get; set; }
+
         public Guid WalletId { get; set; }
     }
 }

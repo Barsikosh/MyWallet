@@ -1,5 +1,7 @@
 ﻿using OnlineWallet.Models;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using OnlineWallet.Dal;
 using OnlineWallet.Dal.Transaction;
@@ -16,34 +18,22 @@ namespace OnlineWallet.Impl
             _walletRepository = walletRepository;
             _transactionRepository = transactionRepository;
         }
-        public async Task<bool> CheckIfWalletExists(Guid? userId)
+
+        public async Task<bool> CheckIfWalletExists(Guid userId)
         {
-            if (!userId.HasValue)
-            {
-                return false;
-            }
-            var wallets = await _walletRepository.FindByUserId(userId.Value);
+            var wallets = await _walletRepository.FindByUserId(userId);
             return wallets != null;
         }
 
-        public async Task<OperationResultModel> GetOperationForMonth(Guid? userId)
+        public async Task<OperationResultModel> GetOperationForMonth(Guid userId)
         {
-            if (!userId.HasValue)
-            {
-                return new OperationResultModel();
-            }
-            var result = await _transactionRepository.GetAllTransactionForMonth(userId.Value, DateTime.UtcNow);
+            var result = await _transactionRepository.GetAllTransactionForMonth(userId, DateTime.UtcNow);
             return result;
         }
 
-        public async Task<int> GetWalletBalance(Guid? userId)
+        public async Task<int> GetWalletBalance(Guid userId)
         {
-            if (!userId.HasValue)
-            {
-                return 0;
-            }
-            return await _walletRepository.GetWalletBalance(userId.Value);
+            return await _walletRepository.GetWalletBalance(userId);
         }
-
     }
 }

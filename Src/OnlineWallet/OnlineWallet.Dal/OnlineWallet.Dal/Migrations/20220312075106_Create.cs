@@ -13,7 +13,8 @@ namespace OnlineWallet.Dal.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", nullable: false),
-                    HashPassword = table.Column<string>(type: "TEXT", nullable: false)
+                    HashPassword = table.Column<string>(type: "TEXT", nullable: false),
+                    PassAllAuthorization = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

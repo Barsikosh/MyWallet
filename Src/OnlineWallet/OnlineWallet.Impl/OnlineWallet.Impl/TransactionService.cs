@@ -29,8 +29,8 @@ namespace OnlineWallet.Impl
                 WalletId = model.WalletId,
                 Date = DateTime.UtcNow,
             };
-            await _transactionRepository.AddAsync(transaction);
             await _walletRepository.DoTransaction(transaction);
+            await _transactionRepository.AddAsync(transaction);
         }
     }
 }

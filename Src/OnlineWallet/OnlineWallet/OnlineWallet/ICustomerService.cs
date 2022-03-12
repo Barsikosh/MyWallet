@@ -11,6 +11,6 @@ namespace OnlineWallet
     {
         public Task CreateCustomer(CreateCustomerModel model);
 
-        public Task<Customer> GetUserByPassword(string userName);
+        public Task<Customer> GetUserByUserName(string userName);
     }
 }

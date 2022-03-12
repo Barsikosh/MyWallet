@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="FlakeyBit.DigestAuthentication.AspNetCore" Version="2021.8.15.2" />
-    <PackageReference Include="FlakeyBit.DigestAuthentication.Implementation" Version="2021.8.14.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

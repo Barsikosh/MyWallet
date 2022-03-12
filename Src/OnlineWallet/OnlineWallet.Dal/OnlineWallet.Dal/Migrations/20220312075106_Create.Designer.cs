@@ -9,7 +9,7 @@ using OnlineWallet.Dal;
 namespace OnlineWallet.Dal.Migrations
 {
     [DbContext(typeof(WalletContext))]
-    [Migration("20220311213000_Create")]
+    [Migration("20220312075106_Create")]
     partial class Create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,6 +47,9 @@ namespace OnlineWallet.Dal.Migrations
                     b.Property<string>("HashPassword")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("PassAllAuthorization")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserName")
                         .IsRequired()

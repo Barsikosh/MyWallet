@@ -17,8 +17,8 @@ namespace OnlineWallet.Dal.Transaction
         public async Task<OperationResultModel> GetAllTransactionForMonth(Guid userId, DateTime currentDateTime)
         {
             var transactions = await base.Query()
-                .Where(x => x.Wallet.CustomerId == userId && ((((currentDateTime.Date.Year - x.Date.Year) * 12) + currentDateTime.Month - x.Date.Month) <= 1)
-                )
+                .Where(x => x.Wallet.CustomerId == userId && ((((currentDateTime.Date.Year - x.Date.Year) * 12) + currentDateTime.Month - x.Date.Month) <= 1))
+                .OrderByDescending(x => x.Date)
                 .ToArrayAsync();
             return new OperationResultModel()
             {

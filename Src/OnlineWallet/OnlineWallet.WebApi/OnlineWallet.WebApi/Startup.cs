@@ -1,19 +1,15 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FlakeyBit.DigestAuthentication.Implementation;
 using FlakeyBit.DigestAuthentication.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using OnlineWallet.Impl;
@@ -34,21 +30,21 @@ namespace OnlineWallet.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddOptions();
+            services.Configure<WalletOptions>(Configuration.GetSection(nameof(WalletOptions)));
+            services.AddHttpContextAccessor();
             services.AddAuthentication("Digest")
-                    .AddDigestAuthentication(DigestAuthenticationConfiguration.Create("VerySecret", Constants.Realm, 60, true, 20));
-
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+                .AddDigestAuthentication(
+                    DigestAuthenticationConfiguration.Create("VerySecret", Constants.Realm, 60, true, 20));
             services
                 .AddScoped<IUsernameHashedSecretProvider, UserHashedSecretProvider>()
-                
                 ;
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnlineWallet.WebApi", Version = "v1" });
             });
+
             services.WithImplServiceCollection();
         }
 
@@ -66,6 +62,7 @@ namespace OnlineWallet.WebApi
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
