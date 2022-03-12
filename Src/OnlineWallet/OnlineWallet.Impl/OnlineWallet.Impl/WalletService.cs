@@ -19,21 +19,15 @@ namespace OnlineWallet.Impl
             _transactionRepository = transactionRepository;
         }
 
-        public async Task<bool> CheckIfWalletExists(Guid userId)
+        public async Task<OperationResultModel> GetAddTransactionsForMonthAsync(Guid userId)
         {
-            var wallets = await _walletRepository.FindByUserId(userId);
-            return wallets != null;
-        }
-
-        public async Task<OperationResultModel> GetOperationForMonth(Guid userId)
-        {
-            var result = await _transactionRepository.GetAllTransactionForMonth(userId, DateTime.UtcNow);
+            var result = await _transactionRepository.GetAllTransactionsAddForMonthAsync(userId, DateTime.UtcNow);
             return result;
         }
 
-        public async Task<int> GetWalletBalance(Guid userId)
+        public async Task<int> GetWalletBalanceAsync(Guid userId)
         {
-            return await _walletRepository.GetWalletBalance(userId);
+            return await _walletRepository.GetWalletBalanceAsync(userId);
         }
     }
 }

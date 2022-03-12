@@ -8,6 +8,6 @@ namespace OnlineWallet
 {
     public interface ITransactionService
     {
-        public Task AddTransaction(SendTransactionModel model);
+        public Task AddTransactionAsync(SendTransactionModel model);
     }
 }

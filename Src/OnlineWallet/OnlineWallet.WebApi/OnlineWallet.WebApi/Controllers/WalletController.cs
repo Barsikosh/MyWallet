@@ -34,20 +34,7 @@ namespace OnlineWallet.WebApi.Controllers
         [HttpGet(nameof(CheckBalance))]
         public async Task<int> CheckBalance()
         {
-            return await _walletService.GetWalletBalance(await GetUserId());
-        }
-
-        /// <summary>
-        /// check wallet
-        /// </summary>
-        /// <returns>bool</returns>
-        /// <response code="200">bool</response>
-        /// <response code="500">Error</response>
-        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
-        [HttpGet(nameof(CheckIfWalletExists))]
-        public async Task<bool> CheckIfWalletExists()
-        {
-            return await _walletService.CheckIfWalletExists(await GetUserId());
+            return await _walletService.GetWalletBalanceAsync(await GetUserId());
         }
 
         /// <summary>
@@ -57,10 +44,10 @@ namespace OnlineWallet.WebApi.Controllers
         /// <response code="200">r</response>
         /// <response code="500">Error</response>
         [ProducesResponseType(typeof(OperationResultModel), StatusCodes.Status200OK)]
-        [HttpGet(nameof(GetAllTransactionForMonth))]
-        public async Task<OperationResultModel> GetAllTransactionForMonth()
+        [HttpGet(nameof(GetAddTransactionsForMonth))]
+        public async Task<OperationResultModel> GetAddTransactionsForMonth()
         {
-            return await _walletService.GetOperationForMonth(await GetUserId());
+            return await _walletService.GetAddTransactionsForMonthAsync(await GetUserId());
         }
 
         private async Task<Guid> GetUserId()

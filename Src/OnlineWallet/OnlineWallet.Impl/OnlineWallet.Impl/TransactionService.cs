@@ -20,7 +20,7 @@ namespace OnlineWallet.Impl
             _walletRepository = walletRepository;
         }
 
-        public async Task AddTransaction(SendTransactionModel model)
+        public async Task AddTransactionAsync(SendTransactionModel model)
         {
             var transaction = new MoneyTransaction()
             {
@@ -29,7 +29,7 @@ namespace OnlineWallet.Impl
                 WalletId = model.WalletId,
                 Date = DateTime.UtcNow,
             };
-            await _walletRepository.DoTransaction(transaction);
+            await _walletRepository.ApplyTransactionAsync(transaction);
             await _transactionRepository.AddAsync(transaction);
         }
     }

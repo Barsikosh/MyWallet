@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FlakeyBit.DigestAuthentication.Implementation;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineWallet.Models;
@@ -22,6 +23,19 @@ namespace OnlineWallet.WebApi.Controllers
         }
 
         /// <summary>
+        /// check wallet
+        /// </summary>
+        /// <returns>bool</returns>
+        /// <response code="200">bool</response>
+        /// <response code="500">Error</response>
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [HttpGet(nameof(CheckIfUserExists))]
+        public async Task<bool> CheckIfUserExists(Guid userId)
+        {
+            return await _customerService.CheckIfUserExistsAsync(userId);
+        }
+
+        /// <summary>
         /// create new customer
         /// </summary>
         /// <param name="model">login and password</param>
@@ -30,7 +44,7 @@ namespace OnlineWallet.WebApi.Controllers
         [HttpPost(nameof(AddCustomer))]
         public async Task AddCustomer(CreateCustomerModel model)
         {
-            await _customerService.CreateCustomer(model);
+            await _customerService.CreateCustomerAsync(model);
         }
     }
 }

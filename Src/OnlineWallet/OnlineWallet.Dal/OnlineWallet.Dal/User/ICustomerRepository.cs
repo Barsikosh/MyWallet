@@ -9,6 +9,6 @@ namespace OnlineWallet.Dal.User
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
-        public Task<Customer> GetCustomerByName(string userName);
+        public Task<Customer> GetCustomerByNameAsync(string userName);
     }
 }

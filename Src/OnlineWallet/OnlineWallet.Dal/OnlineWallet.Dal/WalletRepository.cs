@@ -19,7 +19,7 @@ namespace OnlineWallet.Dal
             _config = options.Value;
         }
 
-        public async Task DoTransaction(MoneyTransaction moneyTransaction)
+        public async Task ApplyTransactionAsync(MoneyTransaction moneyTransaction)
         {
             using (var transaction = await Context.Database.BeginTransactionAsync())
             {
@@ -51,15 +51,7 @@ namespace OnlineWallet.Dal
             }
         }
 
-        public async Task<Wallet> FindByUserId(Guid userId)
-        {
-            return await base.Query()
-                .Where(x => x.CustomerId == userId)
-                .Select(x => Mapper.Map<Wallet>(x))
-                .FirstOrDefaultAsync();
-        }
-
-        public async Task<int> GetWalletBalance(Guid userId)
+        public async Task<int> GetWalletBalanceAsync(Guid userId)
         {
             return await base.Query()
                 .Where(x => x.CustomerId == userId)

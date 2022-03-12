@@ -19,7 +19,13 @@ namespace OnlineWallet.Impl
             _customerRepository = customerRepository;
         }
 
-        public async Task CreateCustomer(CreateCustomerModel model)
+        public async Task<bool> CheckIfUserExistsAsync(Guid userId)
+        {
+            var exist = await _customerRepository.FindAsync(userId);
+            return exist != null;
+        }
+
+        public async Task CreateCustomerAsync(CreateCustomerModel model)
         {
             var hashPassword = DigestAuthentication.ComputeA1Md5Hash(model.UserName, Constants.Realm, model.Password);
             await _customerRepository.AddAsync(new Customer()
@@ -33,7 +39,7 @@ namespace OnlineWallet.Impl
 
         public async Task<Customer> GetUserByUserName(string userName)
         {
-            return await _customerRepository.GetCustomerByName(userName);
+            return await _customerRepository.GetCustomerByNameAsync(userName);
         }
     }
 }

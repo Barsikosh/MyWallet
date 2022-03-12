@@ -14,7 +14,7 @@ namespace OnlineWallet.Dal.User
         {
         }
 
-        public async Task<Customer> GetCustomerByName(string userName)
+        public async Task<Customer> GetCustomerByNameAsync(string userName)
         {
             return await Query()
                 .Where(x => userName == x.UserName)

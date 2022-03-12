@@ -9,10 +9,8 @@ namespace OnlineWallet
 {
     public interface IWalletService
     {
-        public Task<int> GetWalletBalance(Guid userId);
+        public Task<int> GetWalletBalanceAsync(Guid userId);
 
-        public Task<bool> CheckIfWalletExists(Guid userId);
-
-        public Task<OperationResultModel> GetOperationForMonth(Guid userId);
+        public Task<OperationResultModel> GetAddTransactionsForMonthAsync(Guid userId);
     }
 }

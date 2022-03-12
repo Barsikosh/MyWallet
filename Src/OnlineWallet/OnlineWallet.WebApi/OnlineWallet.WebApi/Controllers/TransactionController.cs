@@ -28,7 +28,7 @@ namespace OnlineWallet.WebApi.Controllers
         [HttpPost(nameof(SendTransaction))]
         public async Task SendTransaction(SendTransactionModel transaction)
         {
-            await _transactionService.AddTransaction(transaction);
+            await _transactionService.AddTransactionAsync(transaction);
         }
     }
 }

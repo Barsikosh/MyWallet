@@ -9,6 +9,6 @@ namespace OnlineWallet.Dal.Transaction
 {
     public interface ITransactionRepository : IRepository<MoneyTransaction>
     {
-        public Task<OperationResultModel> GetAllTransactionForMonth(Guid walletId, DateTime currentDateTime);
+        public Task<OperationResultModel> GetAllTransactionsAddForMonthAsync(Guid walletId, DateTime currentDateTime);
     }
 }
