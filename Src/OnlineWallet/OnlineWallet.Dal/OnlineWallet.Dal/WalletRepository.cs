@@ -28,6 +28,11 @@ namespace OnlineWallet.Dal
                     .Include(x => x.Customer)
                     .FirstOrDefaultAsync();
 
+                if (wallet == null)
+                {
+                    throw new ServiceException("Wallet does not exist");
+                }
+
                 if (moneyTransaction.AddMoney && (wallet.Customer.PassAllAuthorization
                                                   && wallet.Balance + moneyTransaction.Sum >
                                                   _config.MaxSumForFullAuthorizedCustomer
