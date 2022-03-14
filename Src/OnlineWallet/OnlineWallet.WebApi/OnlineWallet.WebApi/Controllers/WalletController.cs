@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Reflection.Metadata;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using OnlineWallet.Impl;
-using OnlineWallet.Models;
 
 namespace OnlineWallet.WebApi.Controllers
 {
@@ -38,16 +36,16 @@ namespace OnlineWallet.WebApi.Controllers
         }
 
         /// <summary>
-        /// get transactions for a month
+        /// get replenishment transactions for a month
         /// </summary>
         /// <returns>bool</returns>
         /// <response code="200">r</response>
         /// <response code="500">Error</response>
         [ProducesResponseType(typeof(OperationResultModel), StatusCodes.Status200OK)]
-        [HttpGet(nameof(GetAddTransactionsForMonth))]
-        public async Task<OperationResultModel> GetAddTransactionsForMonth()
+        [HttpGet(nameof(GetReplenishmentTransactionsForMonth))]
+        public async Task<OperationResultModel> GetReplenishmentTransactionsForMonth()
         {
-            return await _walletService.GetAddTransactionsForMonthAsync(await GetUserId());
+            return await _walletService.GetReplenishmentTransactionsForMonthAsync(await GetUserId());
         }
 
         private async Task<Guid> GetUserId()

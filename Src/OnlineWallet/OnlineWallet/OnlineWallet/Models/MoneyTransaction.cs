@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OnlineWallet.Models
 {
-    public class MoneyTransaction : IMonetaryTransaction, IModelWithId
+    public class MoneyTransaction : IModelWithId
     {
         public Guid? Id { get; set; }
 

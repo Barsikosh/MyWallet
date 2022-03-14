@@ -1,7 +1,4 @@
-﻿using OnlineWallet.Models;
-using System;
-using System.Net;
-using System.Net.Http;
+﻿using System;
 using System.Threading.Tasks;
 using OnlineWallet.Dal;
 using OnlineWallet.Dal.Transaction;
@@ -19,10 +16,9 @@ namespace OnlineWallet.Impl
             _transactionRepository = transactionRepository;
         }
 
-        public async Task<OperationResultModel> GetAddTransactionsForMonthAsync(Guid userId)
+        public async Task<OperationResultModel> GetReplenishmentTransactionsForMonthAsync(Guid userId)
         {
-            var result = await _transactionRepository.GetAllTransactionsAddForMonthAsync(userId, DateTime.UtcNow);
-            return result;
+            return await _transactionRepository.GetAllReplenishmentTransactionsForMonthAsync(userId, DateTime.UtcNow);
         }
 
         public async Task<int> GetWalletBalanceAsync(Guid userId)

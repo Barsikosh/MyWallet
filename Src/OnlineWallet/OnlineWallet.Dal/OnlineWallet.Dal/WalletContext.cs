@@ -1,8 +1,4 @@
-﻿
-using OnlineWallet.Dal.Entities;
-using System.Data.Entity;
-using System.Linq;
-using System.Reflection;
+﻿using OnlineWallet.Dal.Entities;
 using Microsoft.EntityFrameworkCore;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 

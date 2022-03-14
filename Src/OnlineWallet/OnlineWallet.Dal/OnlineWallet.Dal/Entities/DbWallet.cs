@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using OnlineWallet.Dal.Entities;
-using SQLite.CodeFirst;
 
 namespace OnlineWallet.Dal
 {
